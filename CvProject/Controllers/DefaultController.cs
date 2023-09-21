@@ -14,15 +14,15 @@ namespace CvProject.Controllers
 
         public ActionResult Index()
         {
-            var values = entities.Abouts.ToList();
+            var about = entities.Abouts.ToList();
 
-            return View(values);
+            return View(about);
         }
 
         public PartialViewResult Experience()
         {
-
-            return PartialView();
+            var experiences = entities.Experiences.ToList();
+            return PartialView(experiences);
         }
 
     }
