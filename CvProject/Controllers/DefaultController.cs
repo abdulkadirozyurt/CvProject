@@ -25,5 +25,11 @@ namespace CvProject.Controllers
             return PartialView(experiences);
         }
 
+        public PartialViewResult Education()
+        {
+            var educations = entities.Educations.ToList();
+            return PartialView(educations);
+        }
+
     }
 }
