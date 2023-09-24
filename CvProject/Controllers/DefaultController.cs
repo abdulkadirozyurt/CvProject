@@ -31,5 +31,27 @@ namespace CvProject.Controllers
             return PartialView(educations);
         }
 
+        public PartialViewResult Skill()
+        {
+            var skills = entities.Skills.ToList();
+            return PartialView(skills);
+        }
+
+        public PartialViewResult Interest()
+        {
+            var interests = entities.Interests.ToList();
+            return PartialView(interests);
+        }
+
+        public PartialViewResult Certificate()
+        {
+            var certificates = entities.Certificates.ToList();
+            return PartialView(certificates);
+        }
+
+        public PartialViewResult Contact()
+        {
+            return PartialView();
+        }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CvDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CvDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="About">
           <Key>
             <PropertyRef Name="Id" />
@@ -71,7 +71,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description1" Type="varchar" MaxLength="500" />
-          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Description2" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Skills">
           <Key>
@@ -90,8 +90,7 @@
           <EntitySet Name="Interests" EntityType="Self.Interests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CvDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -161,7 +160,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Skill">
           <Key>
@@ -255,9 +254,9 @@
           <EntitySetMapping Name="Interests">
             <EntityTypeMapping TypeName="CvDatabaseModel.Interest">
               <MappingFragment StoreEntitySet="Interests">
+                <ScalarProperty Name="Description2" ColumnName="Description2" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description1" ColumnName="Description1" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
