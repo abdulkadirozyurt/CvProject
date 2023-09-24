@@ -49,8 +49,18 @@ namespace CvProject.Controllers
             return PartialView(certificates);
         }
 
+        [HttpGet]
         public PartialViewResult Contact()
         {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult Contact(Contact contact)
+        {
+            contact.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            entities.Contacts.Add(contact);
+            entities.SaveChanges();
+
             return PartialView();
         }
     }
