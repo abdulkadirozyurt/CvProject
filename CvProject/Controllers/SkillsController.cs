@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CvProject.Models.Entity;
+using CvProject.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +11,14 @@ namespace CvProject.Controllers
     public class SkillsController : Controller
     {
         // GET: Skills
+
+        
+        GenericRepository<Skill> repository = new GenericRepository<Skill>();
         public ActionResult Index()
         {
-            return View();
+            var skills = repository.List();
+
+            return View(skills);
         }
     }
 }
