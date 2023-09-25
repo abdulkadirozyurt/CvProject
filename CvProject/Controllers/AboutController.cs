@@ -12,6 +12,9 @@ namespace CvProject.Controllers
         public ActionResult Index()
         {
             return View();
+
+            
         }
     }
 }
+
