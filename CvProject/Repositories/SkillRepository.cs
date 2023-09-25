@@ -6,9 +6,7 @@ using System.Web;
 
 namespace CvProject.Repositories
 {
-    public class ExperienceRepository:GenericRepository<Experience>
+    public class SkillRepository: GenericRepository<Skill>
     {
-        
-
     }
 }
