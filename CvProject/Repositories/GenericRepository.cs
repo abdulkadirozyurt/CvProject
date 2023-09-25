@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 
 namespace CvProject.Repositories
@@ -36,6 +37,11 @@ namespace CvProject.Repositories
         public void Update(T t)
         {
             entities.SaveChanges();
+        }
+
+        public T Find(Expression<Func<T, bool>> filter)
+        {
+            return entities.Set<T>().FirstOrDefault(filter);
         }
     }
 }

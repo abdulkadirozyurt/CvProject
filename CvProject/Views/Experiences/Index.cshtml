@@ -28,11 +28,11 @@
             @*<td>@item.Description</td>*@
             <td>@item.Date</td>
             <td>
-                <a href="#" class="btn btn-danger">Sil</a> 
-                <a href="#" class="btn btn-success">Düzenle</a>
+                <a href="/Experiences/DeleteExperience/@item.Id" class="btn btn-danger">Sil</a> 
+                <a href="/Experiences/UpdateExperience/@item.Id" class="btn btn-success">Düzenle</a>
             </td>
         </tr>
     }
 </table>
 
-<a href="#" class="btn btn-primary">Deneyim Ekle</a>
+<a href="/Experiences/AddExperience" class="btn btn-primary">Deneyim Ekle</a>
