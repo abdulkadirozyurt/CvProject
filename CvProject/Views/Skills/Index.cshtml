@@ -9,7 +9,7 @@
     string color = "";
 }
 
-@{ 
+@{
     string badgeColor = "";
 }
 
@@ -55,12 +55,12 @@
                                                 color = "progress-bar bg-danger";
                                                 badgeColor = "badge bg-danger";
                                             }
-                                            if (item.SkillRatio>=51 && item.SkillRatio<=70)
+                                            if (item.SkillRatio >= 51 && item.SkillRatio <= 70)
                                             {
                                                 color = "progress-bar bg-warning";
                                                 badgeColor = "badge bg-warning";
                                             }
-                                            if (item.SkillRatio>=71 && item.SkillRatio<=84)
+                                            if (item.SkillRatio >= 71 && item.SkillRatio <= 84)
                                             {
                                                 color = "progress-bar bg-primary";
                                                 badgeColor = "badge bg-primary";
@@ -78,7 +78,7 @@
                                                         <div class="@color" style="width: @item.SkillRatio%"></div>
 
                                                     </div>
-                                                    
+
                                                 </td>
 
                                                 <td>
@@ -86,10 +86,21 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="/Skills/DeleteSkill/@item.Id" class="btn btn-outline-danger">Sil</a>
-                                                    <a href="/Skills/UpdateSkill/@item.Id" class="btn btn-outline-success">Güncelle</a>
-                                                    
-                                                 </td>
+                                                    @*<a href="/Skills/DeleteSkill/@item.Id" class="btn btn-outline-danger">Sil</a>
+                                                        <a href="/Skills/UpdateSkill/@item.Id" class="btn btn-outline-success">Güncelle</a>*@
+
+                                                    <a class="btn btn-danger btn-sm" href="/Skills/DeleteSkill/@item.Id">
+                                                        <i class="fas fa-trash">
+                                                        </i>
+                                                        Sil
+                                                    </a>
+
+                                                    <a class="btn btn-info btn-sm" href="/Skills/UpdateSkill/@item.Id">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        Düzenle
+                                                    </a>
+
+                                                </td>
 
                                             </tr>
 

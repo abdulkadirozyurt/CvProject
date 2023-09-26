@@ -2693,6 +2693,8 @@
     <Content Include="Views\Experiences\AddExperience.cshtml" />
     <Content Include="Views\Experiences\UpdateExperience.cshtml" />
     <Content Include="Views\Skills\Index.cshtml" />
+    <Content Include="Views\Skills\AddSkill.cshtml" />
+    <Content Include="Views\Skills\UpdateSkill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

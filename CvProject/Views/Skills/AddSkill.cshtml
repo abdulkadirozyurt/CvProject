@@ -1,0 +1,22 @@
+﻿@model CvProject.Models.Entity.Skill
+@{
+    ViewBag.Title = "AddSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<form method="post" class="form-group">
+        
+
+    @Html.Label("Yetenek")
+    @Html.TextBoxFor(x => x.SkillName, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Yetkinlik Oranı (0 - 100)")
+    @Html.TextBoxFor(x => x.SkillRatio, new { @class = "form-control" })
+    <br />    
+    
+
+    <button class="btn btn-info">Kaydet</button>
+</form>
+
