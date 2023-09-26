@@ -5,71 +5,88 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@{
+    string color = "";
+}
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-       
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Yetenekler</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 10px">#</th>
-                                                <th>Yetenek</th>
-                                                <th>Düzey</th>                                
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
 
-                                            @foreach (var item in Model)
-                                            {
-                                                <tr>
-                                                    <td>@item.Id</td>
-                                                    <td>@item.SkillName</td>                 
-                                                    <td>
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar progress-bar-danger" style="width: @item.SkillRatio%"></div>
-
-                                                        </div>
-                                                        <span style="height: 20px; font-size:13px" class="badge bg-danger">@item.SkillRatio%</span>
-                                                    </td>
-                                                   
-                                                </tr>
-                                            }
-
-                                           
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                                
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenekler</h3>
                             </div>
-                            <!-- /.card -->
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Yetenek</th>
+                                            <th>Düzey</th>
 
-                            
-                            <!-- /.card -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.SkillRatio >= 0 && item.SkillRatio <= 50)
+                                            {
+                                                color = "progress-bar bg-danger";
+                                            }
+                                            if (item.SkillRatio>=51 && item.SkillRatio<=70)
+                                            {
+                                                color = "progress-bar bg-warning";
+                                            }
+                                            if (item.SkillRatio>=71 && item.SkillRatio<=84)
+                                            {
+                                                color = "progress-bar bg-primary";
+                                            }
+                                            if (item.SkillRatio >= 85 && item.SkillRatio <= 100)
+                                            {
+                                                color = "progress-bar bg-success";
+                                            }
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td>@item.SkillName</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@color" style="width: @item.SkillRatio%"></div>
+
+                                                    </div>
+                                                    <span style="height: 20px; font-size:13px" class="badge bg-gradient-purple">@item.SkillRatio%</span>
+                                                </td>
+
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+
                         </div>
-                        <!-- /.col -->
-                        
-                        <!-- /.col -->
+                        <!-- /.card -->
+                        <!-- /.card -->
                     </div>
-                    
-                </div><!-- /.container-fluid -->
-            </section>
-            
+                    <!-- /.col -->
+                    <!-- /.col -->
+                </div>
+
+            </div><!-- /.container-fluid -->
+        </section>
+
 </body>
 </html>
 
