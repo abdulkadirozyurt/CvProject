@@ -9,6 +9,10 @@
     string color = "";
 }
 
+@{ 
+    string badgeColor = "";
+}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +31,18 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
+                                <a href="/Skills/AddSkill/" class="btn btn-outline-primary">Yetenek Ekle</a>
+                                <br />
+                                <br />
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th style="width: 10px">#</th>
                                             <th>Yetenek</th>
                                             <th>Düzey</th>
+                                            <th width="40px"></th>
+                                            <th></th>
+
 
                                         </tr>
                                     </thead>
@@ -43,18 +53,22 @@
                                             if (item.SkillRatio >= 0 && item.SkillRatio <= 50)
                                             {
                                                 color = "progress-bar bg-danger";
+                                                badgeColor = "badge bg-danger";
                                             }
                                             if (item.SkillRatio>=51 && item.SkillRatio<=70)
                                             {
                                                 color = "progress-bar bg-warning";
+                                                badgeColor = "badge bg-warning";
                                             }
                                             if (item.SkillRatio>=71 && item.SkillRatio<=84)
                                             {
                                                 color = "progress-bar bg-primary";
+                                                badgeColor = "badge bg-primary";
                                             }
                                             if (item.SkillRatio >= 85 && item.SkillRatio <= 100)
                                             {
                                                 color = "progress-bar bg-success";
+                                                badgeColor = "badge bg-success";
                                             }
                                             <tr>
                                                 <td>@item.Id</td>
@@ -64,10 +78,21 @@
                                                         <div class="@color" style="width: @item.SkillRatio%"></div>
 
                                                     </div>
-                                                    <span style="height: 20px; font-size:13px" class="badge bg-gradient-purple">@item.SkillRatio%</span>
+                                                    
                                                 </td>
 
+                                                <td>
+                                                    <span style="height: 20px; font-size:13px" class="@badgeColor">@item.SkillRatio%</span>
+                                                </td>
+
+                                                <td>
+                                                    <a href="/Skills/DeleteSkill/@item.Id" class="btn btn-outline-danger">Sil</a>
+                                                    <a href="/Skills/UpdateSkill/@item.Id" class="btn btn-outline-success">Güncelle</a>
+                                                    
+                                                 </td>
+
                                             </tr>
+
                                         }
 
 
