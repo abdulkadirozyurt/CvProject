@@ -70,8 +70,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description1" Type="varchar" MaxLength="500" />
-          <Property Name="Description2" Type="varchar" MaxLength="500" />
+          <Property Name="Description1" Type="varchar" MaxLength="5000" />
+          <Property Name="Description2" Type="varchar" MaxLength="5000" />
         </EntityType>
         <EntityType Name="Skills">
           <Key>
@@ -79,6 +79,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SkillName" Type="varchar" MaxLength="100" />
+          <Property Name="SkillRatio" Type="tinyint" />
         </EntityType>
         <EntityContainer Name="CvDatabaseModelStoreContainer">
           <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
@@ -159,8 +160,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Description2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Description2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Skill">
           <Key>
@@ -168,6 +169,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SkillName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SkillRatio" Type="Byte" />
         </EntityType>
         <EntityContainer Name="CvDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Abouts" EntityType="Self.About" />
@@ -263,6 +265,7 @@
           <EntitySetMapping Name="Skills">
             <EntityTypeMapping TypeName="CvDatabaseModel.Skill">
               <MappingFragment StoreEntitySet="Skills">
+                <ScalarProperty Name="SkillRatio" ColumnName="SkillRatio" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SkillName" ColumnName="SkillName" />
               </MappingFragment>
