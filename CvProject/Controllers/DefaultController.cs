@@ -27,7 +27,7 @@ namespace CvProject.Controllers
 
         public PartialViewResult Education()
         {
-            var educations = entities.Educations.ToList();
+            var educations = entities.Educations.OrderByDescending(x=>x.Id).ToList();
             return PartialView(educations);
         }
 

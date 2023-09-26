@@ -1,0 +1,39 @@
+﻿@model CvProject.Models.Entity.Education
+@{
+    ViewBag.Title = "AddEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<form method="post" class="form-group">
+
+    @Html.Label("Üniversite")
+    @Html.TextBoxFor(x => x.University, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.University, "", new { @style = "color: red" })
+    <br />
+
+    @Html.Label("Fakülte")
+    @Html.TextBoxFor(x => x.Faculty, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Bölüm")
+    @Html.TextBoxFor(x => x.Department, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("GNO")
+    @Html.TextBoxFor(x => x.Gpa, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Gpa, "", new { @style = "color: blue" })
+    <br />
+
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+
+
+
+    <button class="btn btn-info">Kaydet</button>
+</form>
+
+
