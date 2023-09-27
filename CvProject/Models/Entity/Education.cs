@@ -11,26 +11,14 @@ namespace CvProject.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Education
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Boþ býrakýlamaz.")]
-        [StringLength(100)]
         public string University { get; set; }
-
-        [StringLength(100)]
         public string Faculty { get; set; }
-
-        [StringLength(100)]
         public string Department { get; set; }
-
-        [StringLength(10,ErrorMessage ="En fazla 10 karakter girilebilir.")]
         public string Gpa { get; set; }
-
-        [StringLength(100)]
         public string Date { get; set; }
     }
 }
