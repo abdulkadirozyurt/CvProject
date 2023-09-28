@@ -1,28 +1,50 @@
-﻿
+﻿@using CvProject.Models.Entity
+@model List<About>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Hakkında</h2>
+<br>
+<br>
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Ad</th>
-        <th>Şehir</th>
+<form method="post">
+
+    @foreach (var item in Model)
+    {
+        <label>Ad</label>
+        <input type="text" name="FirstName" value="@item.FirstName" class="form-control" />
+        <br />
+
+        <label>Soyad</label>
+        <input type="text" name="LastName" value="@item.LastName" class="form-control" />
+        <br />
+
+        <label>Adres</label>
+        <input type="text" name="Address" value="@item.Address" class="form-control" />
+        <br />
+
+        <label>Telefon</label>
+        <input type="text" name="Phone" value="@item.Phone" class="form-control"/>
+        <br />
+
+        <label>E-Posta</label>
+        <input type="text" name="Email" value="@item.Email" class="form-control"/>
+        <br />
+
+        <label>Açıklama</label>
+        <textarea rows="5" class="form-control" name="Description">@item.Description</textarea>
+        <br />
+
+        <label>Fotoğraf</label>
+        <input type="text" name="Photo" value="@item.Photo"class="form-control" />
+        <br />
+
         
-    </tr>
 
-    
-        <tr>
-            <td>1</td>
-            <td>Murat</td>
-            <td>Elazığ</td>
-        </tr>
+        
+    }
 
-    
+    <button class="btn btn-primary">Güncelle</button>
 
-    
-</table>
-
+</form>

@@ -1,0 +1,96 @@
+﻿@using CvProject.Models.Entity
+@model List<Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <br />
+        <a href="/Certificates/AddCertificate/" class="btn btn-info">Sertifika Ekle</a>
+        <br />
+        <br />
+
+
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- /.col -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header p-2">
+
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+
+
+
+                                <div class="tab-pane" id="timeline">
+                                    <!-- The timeline -->
+                                    <div class="timeline timeline-inverse">
+
+                                        @foreach (var item in Model)
+                                        {
+
+
+
+                                            <!-- timeline time label -->
+                                            <div class="time-label">
+                                                <span class="bg-success">
+                                                    @(((DateTime)item.Date).ToString("dd-MMM-yyyy"))
+                                                </span>
+                                            </div>
+                                            <!-- /.timeline-label -->
+                                            <!-- timeline item -->
+                                            <div>
+                                                <i class="fas fa-comments bg-warning"></i>
+
+                                                <div class="timeline-item">
+                                                    <span class="time" style="font-size:20px">@item.Email <i class="fas fa-envelope"></i></span>
+                                                    <h3 class="timeline-header"> KONU: @item.Subject</h3>
+                                                    <div style="font-weight:bold; font-size:20px" class="timeline-body">
+                                                        @item.FullName
+                                                    </div>
+                                                    <div style="font-size:16px" class="timeline-body">
+                                                        @item.Message
+                                                    </div>
+
+
+                                                    @*<div class="timeline-footer">
+                                                        <a href="/Certificates/UpdateCertificate/@item.Id" class="btn btn-primary btn-sm">Düzenle</a>
+                                                        <a href="/Certificates/DeleteCertificate/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                                                    </div>*@
+                                                </div>
+                                            </div>
+
+                                        }
+
+
+                                    </div>
+                                </div>
+
+
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+
+       </div>
+</body>
+</html>
+
+

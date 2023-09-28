@@ -37,10 +37,17 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="/AdminLTE-3.2.0/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+
+                        @*@using CvProject.Models.Entity
+                        @model List<About>
+                        @foreach (var item in Model)
+                        {
+                        <img src="@item.Photo" class="img-circle elevation-2" alt="User Image">
+                        }*@
+                        
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Admin Paneli</a>
+                        <a style="font-size:20px;font-weight:bold" href="#" class="d-block">Admin Paneli</a>
                     </div>
                 </div>
 
@@ -60,23 +67,23 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="/About/Index" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Hakkında
-                                    
+
                                 </p>
                             </a>
 
                         </li>
                         <li class="nav-item">
-                            <a href="/Education/Index" class="nav-link">
+                            <a href="/Educations/Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Eğitim
-                                    
+
                                 </p>
                             </a>
                         </li>
@@ -84,17 +91,17 @@
                             <a href="/Experiences/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Deneyimler                                    
+                                    Deneyimler
                                 </p>
                             </a>
 
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/Interests/Index" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
                                     İlgi Alanları
-                                    
+
                                 </p>
                             </a>
 
@@ -105,12 +112,12 @@
                             <a href="/Skills/Index" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
-                                    Yetenekler                                   
+                                    Yetenekler
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../gallery.html" class="nav-link">
+                            <a href="/Certificates/Index" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Sertifikalar
@@ -118,10 +125,34 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../kanban.html" class="nav-link">
+                            <a href="/Socials/Index/" class="nav-link">
+                                <i class="nav-icon fa fa-share-square"></i>
+                                <p>
+                                    Sosyal Medya
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Contact/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
                                     İletişim
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Kullanıcılar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Login/LogOut/" class="nav-link">
+                                <i class="nav-icon fa fa-times"></i>
+                                <p>
+                                    Çıkış Yap
                                 </p>
                             </a>
                         </li>

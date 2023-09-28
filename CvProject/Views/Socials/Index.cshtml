@@ -1,0 +1,144 @@
+﻿@using CvProject.Models.Entity
+@model List<Social>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Sosyal Medya Hesapları</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <button class="btn btn-outline-primary" data-toggle="modal" data-target="#Modal1">Ekle</button>                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Platform</th>
+                                            <th>Durum</th>
+                                            <th></th>
+
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.PlatformName</td>
+
+                                            @if (item.Status == true)
+                                            {
+                                                <td>Aktif</td>
+                                            }
+                                            else
+                                            {
+                                                <td>Pasif</td>
+                                            }
+
+
+
+
+                                            <td>
+
+
+                                                <a class="btn btn-danger btn-sm" href="/Socials/DeleteSocial/@item.Id">
+                                                    <i class="fas fa-trash">
+                                                    </i>
+                                                    Sil
+                                                </a>
+
+                                                <a class="btn btn-info btn-sm" href="/Socials/UpdateSocial/@item.Id">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    Düzenle
+                                                </a>
+
+                                            </td>
+
+                                        </tr>
+
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+
+                        </div>
+                        <!-- /.card -->
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                    <!-- /.col -->
+                </div>
+
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Sosyal Medya Ekleme Paneli</h3>
+                    </div>
+
+                    <form action="/Socials/AddSocial/" method="post">
+                        <div class="modal-body">
+
+                            <label>Platform</label>
+                            <input type="text" name="PlatformName" class="form-control" />
+                            <br />
+
+                            <label>Bağlantı Adresi</label>
+                            <input type="text" name="Link" class="form-control" />
+                            <br />
+
+                            <label>Simge</label>
+                            <input type="text" name="Icon" class="form-control" />
+                            <br />
+
+
+                            <button class="btn btn-outline-info">Kaydet</button>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+

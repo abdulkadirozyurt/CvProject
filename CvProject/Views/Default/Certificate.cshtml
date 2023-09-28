@@ -8,12 +8,30 @@
 
         @foreach (var item in Model)
         {
-            <li>
-                <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                @item.Description
-            </li>
+            <!--<li>-->
+            @*<span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>*@
+            @*@item.Description | @item.InstructorAndPlatform | @item.Date*@
+
+
+            
+
+            <li> <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span></li>
+            @item.Description
+
+            <ul>
+
+                <li>@item.Platform - @item.Instructor</li>               
+                <li>@item.Date</li>
+
+            </ul>
+
+
+            <br />
+            
         }
 
+
+        @*<div class="fas fa-trophy text-warning">   </div>*@
 
 
 

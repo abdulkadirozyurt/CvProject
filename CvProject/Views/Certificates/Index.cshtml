@@ -1,4 +1,6 @@
-﻿
+﻿@using CvProject.Models.Entity
+@model IEnumerable<Certificate>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -9,10 +11,10 @@
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
-
-
-
+        <br />
+        <a href="/Certificates/AddCertificate/" class="btn btn-info">Sertifika Ekle</a>
+        <br />
+        <br />
 
 
 
@@ -34,31 +36,41 @@
                                 <div class="tab-pane" id="timeline">
                                     <!-- The timeline -->
                                     <div class="timeline timeline-inverse">
-                                        <!-- timeline time label -->
-                                        <div class="time-label">
-                                            <span class="bg-success">
-                                                10 Feb. 2014
-                                            </span>
-                                        </div>
-                                        <!-- /.timeline-label -->
-                                        <!-- timeline item -->
-                                        <div>
-                                            <i class="fas fa-certificate bg-primary"></i>
 
-                                            <div class="timeline-item">
+                                        @foreach (var item in Model)
+                                        {
 
 
-                                                <div class="timeline-body">
-                                                   SERTİFİKA AÇIKLAMASI 
-                                                </div>
-                                                <div class="timeline-footer">
-                                                    <a href="#" class="btn btn-primary btn-sm">Düzenle</a>
-                                                    <a href="#" class="btn btn-danger btn-sm">Sil</a>
+
+                                            <!-- timeline time label -->
+                                            <div class="time-label">
+                                                <span class="bg-success">
+                                                    @item.Date
+                                                </span>
+                                            </div>
+                                            <!-- /.timeline-label -->
+                                            <!-- timeline item -->
+                                            <div>
+                                                <i class="fas fa-certificate bg-primary"></i>
+
+                                                <div class="timeline-item">
+
+
+                                                    <div class="timeline-body">
+                                                        @item.Description
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        @item.Platform - @item.Instructor
+                                                    </div>
+
+                                                    <div class="timeline-footer">
+                                                        <a href="/Certificates/UpdateCertificate/@item.Id" class="btn btn-primary btn-sm">Düzenle</a>
+                                                        <a href="/Certificates/DeleteCertificate/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-
+                                        }
 
 
                                     </div>

@@ -33,5 +33,6 @@ namespace CvProject.Models.Entity
         public virtual DbSet<Experience> Experiences { get; set; }
         public virtual DbSet<Interest> Interests { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
+        public virtual DbSet<Social> Socials { get; set; }
     }
 }

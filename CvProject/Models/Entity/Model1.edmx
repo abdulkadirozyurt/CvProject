@@ -31,8 +31,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="varchar" MaxLength="30" />
           <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="Instructor" Type="varchar" MaxLength="50" />
+          <Property Name="Platform" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -82,6 +84,16 @@
           <Property Name="SkillName" Type="varchar" MaxLength="100" />
           <Property Name="SkillRatio" Type="tinyint" />
         </EntityType>
+        <EntityType Name="Socials">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlatformName" Type="varchar" MaxLength="50" />
+          <Property Name="Link" Type="varchar" MaxLength="200" />
+          <Property Name="Icon" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
         <EntityContainer Name="CvDatabaseModelStoreContainer">
           <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
@@ -91,6 +103,7 @@
           <EntitySet Name="Experiences" EntityType="Self.Experiences" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Interests" EntityType="Self.Interests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Socials" EntityType="Self.Socials" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -123,7 +136,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Date" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Instructor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Platform" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -182,7 +197,18 @@
           <EntitySet Name="Experiences" EntityType="Self.Experience" />
           <EntitySet Name="Interests" EntityType="Self.Interest" />
           <EntitySet Name="Skills" EntityType="Self.Skill" />
+          <EntitySet Name="Socials" EntityType="CvDatabaseModel.Social" />
         </EntityContainer>
+        <EntityType Name="Social">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlatformName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -215,6 +241,8 @@
           <EntitySetMapping Name="Certificates">
             <EntityTypeMapping TypeName="CvDatabaseModel.Certificate">
               <MappingFragment StoreEntitySet="Certificates">
+                <ScalarProperty Name="Platform" ColumnName="Platform" />
+                <ScalarProperty Name="Instructor" ColumnName="Instructor" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -271,6 +299,17 @@
                 <ScalarProperty Name="SkillRatio" ColumnName="SkillRatio" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Socials">
+            <EntityTypeMapping TypeName="CvDatabaseModel.Social">
+              <MappingFragment StoreEntitySet="Socials">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="PlatformName" ColumnName="PlatformName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

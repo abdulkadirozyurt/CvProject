@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace CvProject.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         // GET: Default
@@ -25,9 +26,15 @@ namespace CvProject.Controllers
             return PartialView(experiences);
         }
 
+        public PartialViewResult SocialMedia()
+        {
+            var socials = entities.Socials.Where(x => x.Status != false).ToList();
+            return PartialView(socials);
+        }
+
         public PartialViewResult Education()
         {
-            var educations = entities.Educations.OrderByDescending(x=>x.Id).ToList();
+            var educations = entities.Educations.OrderByDescending(x => x.Id).ToList();
             return PartialView(educations);
         }
 

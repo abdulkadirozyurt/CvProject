@@ -7,7 +7,7 @@ using System.Web;
 
 namespace CvProject.Repositories
 {
-    public class GenericRepository<T> where T : class, new()
+    public class GenericRepository<T> where T : class, new() 
     {
         CvDatabaseEntities entities = new CvDatabaseEntities();
 

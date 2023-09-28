@@ -1,0 +1,22 @@
+﻿@using CvProject.Models.Entity
+@model List<Social>
+
+
+
+
+<div class="social-icons">
+
+
+
+    @*<a class="social-icon" href="#!"> <i class="@item.Icon</i> </a>*@
+
+
+
+
+    @foreach (var item in Model)
+    {
+        <a href="@item.Link" class="social-icon"> <i class="@item.Icon"></i> </a>
+    }
+
+
+</div>

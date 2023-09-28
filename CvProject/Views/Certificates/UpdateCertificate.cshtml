@@ -1,0 +1,34 @@
+﻿@model CvProject.Models.Entity.Certificate
+@{
+    ViewBag.Title = "UpdateCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<form method="post" class="form-group">
+
+    @Html.Label("#")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Platform")
+    @Html.TextBoxFor(x => x.Platform, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Eğitmen")
+    @Html.TextBoxFor(x => x.Instructor, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-info">Güncelle</button>
+</form>
+
+

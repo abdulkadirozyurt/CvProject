@@ -17,5 +17,7 @@ namespace CvProject.Models.Entity
         public int Id { get; set; }
         public string Description { get; set; }
         public string Date { get; set; }
+        public string Instructor { get; set; }
+        public string Platform { get; set; }
     }
 }
